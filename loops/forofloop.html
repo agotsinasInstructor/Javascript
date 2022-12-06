@@ -1,0 +1,39 @@
+<!-- 
+  [Author] Gotsinas Antonios
+
+  [Επαναλήψεις και javascript]
+
+  [Description] 
+
+    Σε αυτό το παράδειγμα μελετάμε τις δομές επανάληψης με την javascript
+   
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Loops Start School of Code</title>
+    </head>
+
+    <body>
+         <!-- Δημιουργώ μία δική μου οθόνη με κώδικα html και την μορφοποιώ με css
+         έτσι ώστε να εμφανίζω τα αποτελέσματα των παραδειγμάτων μου σε αυτήν.-->   
+         <h2>Οθόνη αποτελεσμάτων JavaScript</h2>
+         <div style = "border: 2px solid black; width: 500px; height: 500px; padding: 10px;">
+         <p style="color:red;">Εκτέλεση δομής επανάληψης for..of σε συμβολοσειρά για να μετρήσουμε τους χαρακτήρες a μέσα σε αυτήν.</p>
+         <p id = "othoni"></p>
+         </div>
+    </body>
+
+    <script>
+      // δήλωσε μία μεταβλητή συμβολοσειράς και αρχικοποίησέ την ως κενή ""
+      let str = "banana, apple and avocanto are fruits";      
+      let count = 0;
+
+      for(const c of str) {
+        if (c == 'a')
+          count++;
+      }
+      // εμφάνισε στην οθόνη το αποτέλεσμα αυτής της αλλαγής
+      document.getElementById("othoni").innerHTML = "Ο αριθμός των χαρακτήρων a μέσα στη συμβολοσειρά " + str + " είναι: " + count;
+      </script>
+</html>

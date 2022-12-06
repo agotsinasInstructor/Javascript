@@ -1,0 +1,34 @@
+<!-- 
+  [Author] Gotsinas Antonios
+
+  [Πίνακες και javascript]
+
+  [Description] 
+
+    Σε αυτό το παράδειγμα μελετάμε τους πίνακες με την javascript
+   
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript SSOC</title>
+    </head>
+<body>
+
+  <!-- Δημιουργώ μία δική μου οθόνη με κώδικα html και την μορφοποιώ με css
+         έτσι ώστε να εμφανίζω τα αποτελέσματα των παραδειγμάτων μου σε αυτήν.-->   
+<h2>Οθόνη αποτελεσμάτων JavaScript</h2>
+<div style = "border: 2px solid black; width: 500px; height: 500px; padding: 10px;">
+<p id = "othoni"></p>
+</div>
+
+
+<script>
+  // δήλωσε ένα πίνακα με όνομα fruits και αποθήκευσε μερικά φρούτα σε αυτόν
+const fruits =["Μήλο", "Αχλάδι", "Μπανάνα", "Αβοκάντο"]; 
+// εμφάνισε στην οθόνη τις τιμές του πίνακα μία προς μία αλλάζοντας γραμμή στο στοιχείο σε κάθε τιμή που εμφανίζεται
+document.getElementById("othoni").innerHTML = fruits[0] + "<br>" + fruits[1] + "<br>" + fruits[2] + "<br>" + fruits[3];
+</script>
+
+</body>
+</html> 

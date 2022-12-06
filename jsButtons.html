@@ -1,0 +1,106 @@
+<!-- 
+  [Author] Gotsinas Antonios
+
+  [Μεταβλητές και javascript]
+
+  [Description] 
+
+    Σε αυτό το παράδειγμα μελετάμε τις μεταβλητές στην javascript και τους διάφορους τρόπους
+    χρήσης τους σε προγράμματα.
+   
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript SSOC</title>
+
+        <style>
+          /* Μορφοποίηση css για να φτιάξω ένα πλέγμα απο div*/
+
+          /* όλα τα στοιχεία να συμπεριλαμβάνουν στο μέγεθός τους τα padding, margin, border*/
+          * {
+            box-sizing: border-box;
+          }
+          /* Μορφοποίηση του container που θα φιλοξενήσει το πλέγμα*/
+          .container {
+            width: 50%;
+          }
+          /* Μορφοποίηση κάθε στήλης*/
+          .column {
+            float:left;
+            width: 20%;
+            padding: 2px;
+          }
+          /* Ειδική μορφοποίηση που θα εφαρμοστεί στο κελί που θα φιλοξενήσει το κουμπί υπολογισμού*/
+          .btn {
+            float:left;
+            width: 20%;
+            padding: 2px;
+            text-align: right; /* απλά αλλάζω την στοίχιση του κειμένου στα δεξιά*/
+          }
+           /* Μορφοποίηση έτσι ώστε μετά απο κάθε εφαρμογή της μορφοποίησης .row να υπάρχει κενό περιεχόμενο*/
+          .row::after {
+            content: "";
+            display: table;
+            clear: both;
+          }
+          /* Μορφοποίηση των στοιχείων input ώστε να καταλαμβάνουν το 100% του γονέα που τα φιλοξενεί*/
+          .inelements {
+            width: 100%;
+            overflow: hidden; /* σε περίπτωση που το κείμενο δεν χωράει μέσα στα στοιχεία κρύψτο*/
+          }         
+        </style>
+    </head>
+<body>
+
+  <!-- Δημιουργώ μία δική μου οθόνη με κώδικα html και την μορφοποιώ με css
+         έτσι ώστε να εμφανίζω τα αποτελέσματα των παραδειγμάτων μου σε αυτήν.-->   
+<h2>Οθόνη αποτελεσμάτων JavaScript</h2>
+<div style = "border: 2px solid black; width: 500px; height: 500px; padding: 10px;">
+     <!-- Δημιουργώ μερικές γραμμές στην οθόνη μου 
+        δίνοντάς τους id για να εμφανίζω σε αυτές τα αποτελέσματα-->
+<p id = "grammi1"></p>
+<p id = "grammi2"></p>
+<p id = "grammi3"></p>
+</div>
+<br>
+
+<!-- μορφοποίηση div σε μορφή πίνακα για να φιλοξενήσει τα πεδία εισαγωγής τιμών
+     και το πλήκτρο υπολογισμού-->
+<div class="container">
+  <!-- η πρώτη γραμμή θα περιέχει τις ετικέτες των στοιχείων εισόδου-->
+   <div class="row">
+     <div class="column"> <label for="value1">x</label></div>
+     <div class="column"> <label for="value2">y</label></div>
+   </div>
+   <!-- η δεύτερη γραμμή θα περιέχει τα στοιχεία εισόδου-->
+   <div class="row">
+    <div class="column"> <input id="value1" class="inelements"></div>
+    <div class="column"> <input id="value2" class="inelements"></div>
+   </div>
+   <!-- η τρίτη γραμμή θα περιέχει το πλήκτρο υπολογισμού στη δεύτερη στήλη με στοίχιση στα δεξιά-->
+   <div class="row">
+    <div class="column"></div>
+    <div class="btn"><button onclick="add()" class="inelements">Πρόσθεση</button></div>
+   </div>
+</div>
+
+<!--Κώδικας Javascript-->
+<script>
+
+// Συνάρτηση με τη μορφή διαδικασίας που εκτελεί άθροισμα των τιμών που έχει εισαγάγει ο χρήστης στα πεδία input της σελίδας
+function add(){
+  // θέσε στη μεταβλητή a την τιμή που έχει εισαγάγει ο χρήστης στο πεδίο value1 αφού το μετατρέψεις σε ακέραιο αριθμό
+  let a = parseInt(document.getElementById("value1").value);
+  // θέσε στη μεταβλητή b την τιμή που έχει εισαγάγει ο χρήστης στο πεδίο value2 αφού το μετατρέψεις σε ακέραιο αριθμό
+  let b = parseInt(document.getElementById("value2").value);
+  // υπολογίσε το άθροισμα των μεταβλητών αυτό και τοποθέτησέ το στη μεταβλητή sum
+  let sum = a+b;
+  // εμφάνισε το αποτέλεσμα του αθροίσματος με ένα κείμενο επεξήγησης στην γραμμή 1 της οθόνης που φτιάξαμε
+  document.getElementById("grammi1").innerHTML = "Το άθροισμα των τιμών x + y είναι " + sum;
+}
+
+</script>
+
+</body>
+</html> 

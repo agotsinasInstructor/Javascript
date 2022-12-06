@@ -1,0 +1,54 @@
+<<!-- 
+  [Author] Gotsinas Antonios
+
+  [Συναρτήσεις με την javascript]
+
+  [Description] 
+   
+    Σε αυτό το παράδειγμα κάνουμε χρήση συναρτήσεων με την javascript με σκοπό τη μελέτη της λειτουργίας τους
+    σε προγράμματα.
+-->
+    !DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript SSOC</title>
+    </head>
+<body>
+
+    <!-- Δημιουργώ μία δική μου οθόνη με κώδικα html και την μορφοποιώ με css
+         έτσι ώστε να εμφανίζω τα αποτελέσματα των παραδειγμάτων μου σε αυτήν.-->
+<h2>Οθόνη αποτελεσμάτων JavaScript</h2>
+
+<div style = "border: 2px solid black; width: 500px; height: 500px; padding: 10px;">
+    <!-- Δημιουργώ μερικές γραμμές στην οθόνη μου 
+        δίνοντάς τους id για να εμφανίζω σε αυτές τα αποτελέσματα-->
+<p id = "grammi1"></p>
+<p id = "grammi2"></p>
+<p id = "grammi3"></p>
+</div>
+
+<!-- Πρόγραμμα javascript -->
+<script>
+
+// εκχώρησε στη μεταβλητή sum το αποτέλεσμα του αθροίσματος 5+4
+let sum = prosthesi(5,4);
+
+// εμφάνισε το αποτέλεσμα στην πρώτη γραμμή της οθόνης που φτιάξαμε
+document.getElementById("grammi1").innerHTML = sum;
+// εμφάνισε στη δεύτερη γραμμή της οθόνης μας το αποτέλεσμα της πράξης 10+4
+document.getElementById("grammi2").innerHTML = prosthesi(10,4);
+// εμφάνισε στην τρίτη γραμμή της οθόνης μας το αποτέλεσμα της πράξης 5+4+1
+document.getElementById("grammi3").innerHTML = prosthesi(5,4) + 1;
+
+// Συνάρτηση που επιστρέφει το άθροισμα των τιμών που θα λάβουν
+// οι παράμετροι a και b  (a+b).
+function prosthesi(a,b){
+    // εκχώρησε την τιμή του αθροίσματος στη μεταβλητή z
+    let z = a + b;
+    // επέστρεψε την τιμή της μεταβλητής z
+    return z;
+}
+</script>
+
+</body>
+</html> 

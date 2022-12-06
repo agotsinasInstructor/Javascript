@@ -1,0 +1,76 @@
+<!-- 
+  [Author] Gotsinas Antonios
+
+  [Πίνακες και javascript και επαναλήψεις]
+
+  [Description] 
+
+    Σε αυτό το παράδειγμα μελετάμε τους πίνακες με την javascript και μεθόδους επανάληψης 
+   
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript SSOC</title>
+    </head>
+<body>
+
+  <!-- Δημιουργώ μία δική μου οθόνη με κώδικα html και την μορφοποιώ με css
+         έτσι ώστε να εμφανίζω τα αποτελέσματα των παραδειγμάτων μου σε αυτήν.-->   
+<h2>Οθόνη αποτελεσμάτων JavaScript</h2>
+<div style = "border: 2px solid black; width: 500px; height: 500px; padding: 10px;">
+<p style="color:red;">Χρήση μεθόδου foreach με τη συνάρτηση fixOutput</p>
+<p id = "grammi1"></p>
+<p style="color:red">Χρήση μεθόδου map με τη συνάρτηση modifyElements</p>
+<p id = "grammi2"></p>
+<p style="color:red">Χρήση μεθόδου filter με τη συνάρτηση filter4</p>
+<p id = "grammi3"></p>
+<p id = "grammi4"></p>
+<p id = "grammi5"></p>
+</div>
+
+<!--Πρόγραμμα javascript-->
+<script>
+ 
+ // δήλωσε ένα πίνακα με όνομα fruits και αποθήκευσε μερικά φρούτα σε αυτόν
+const fruits =["Μήλο", "Αχλάδι", "Μπανάνα", "Αβοκάντο"]; 
+// δήλωσε μία μεταβλητή που θα κρατά το αποτέλεσμα της εμφάνισης στην οθόνή
+let str = "";
+// για κάθε στοιχείο του πίνακα fruits κάλεσε τη συνάρτηση fixOuput
+fruits.forEach(fixOutput);
+// δημιουργία ενός νέου πίνακα από τον πίνακα fruits κάνοντας χρήση της μεθόδου map 
+// με εφαρμογή της συνάρτησης modifyElements για κάθε στοιχείο του πίνακα fruits
+const modifiedFruits = fruits.map(modifyElements);
+
+const fruitswith4letters = fruits.filter(filter4);
+/// εμφάνισε στην οθόνη το άθροισμα των τιμών του πίνακα
+document.getElementById("grammi1").innerHTML = str;
+document.getElementById("grammi2").innerHTML = modifiedFruits;
+document.getElementById("grammi3").innerHTML = fruitswith4letters;
+
+
+// συνάρτηση που εμφανίζει τα δεδομένα ενός πίνακα array με συγκεκριμένη μορφή
+// η συνάρτηση που καλείται μέσω της μεθόδου foreach ενός πίνακα έχει 3 παραμέτρους
+function fixOutput(value, index, array) {
+    // στη δημόσια μεταβλητή str πρόσθεσε κάθε φορά την τιμή value με τη μορφοποίηση index - value και αλλαγή γραμμής
+    str += index + "-" + value + "<br>"
+  }
+
+// συνάρτηση που μορφοποιεί τα δεδομένα ενός πίνακα με συγκεκριμένη μορφή
+// η συνάρτηση αυτή θα κληθεί μέσω της μεθόδου map ενός πίνακα
+function modifyElements(value, index, array) {
+  // δήλωσε μία μεταβλητή και αποθήκευσε σε αυτή την μορφοποίηση "index*value"
+  let str = index +"*" + value; 
+  // επέστρεψε την τιμή αυτής της μορφοποίησης
+  return str;
+}
+
+// συνάρτηση που επιστρέφει το στοιχείο του πίνακα το μήκος του είναι μικρότερο ίσο του 4
+function filter4(value, index, array) {
+  return value.length <= 4;
+}
+
+</script>
+
+</body>
+</html> 

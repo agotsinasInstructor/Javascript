@@ -1,0 +1,126 @@
+<!-- 
+  [Author] Gotsinas Antonios
+
+  [Events με την Javascript]
+
+  [Description] 
+
+    Σε αυτό το παράδειγμα μελετάμε τις μεθόδους χειρισμού των events που προκαλούνται από ενέργειες του χρήστη ή απο ενέργειες του 
+    φυλλομετρητή. 
+   
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Events</title>
+
+        <style>
+          /* Μορφοποίηση css για να φτιάξω ένα πλέγμα απο div*/
+
+          /* όλα τα στοιχεία να συμπεριλαμβάνουν στο μέγεθός τους τα padding, margin, border*/
+          * {
+            box-sizing: border-box;
+          }
+          /* Μορφοποίηση του container που θα φιλοξενήσει το πλέγμα*/
+          .container {
+            width: 100%;
+          }
+          /* Μορφοποίηση κάθε στήλης*/
+          .column {
+            float:left;
+            width: 20%;
+            padding-left: 20px;
+            padding-bottom: 20px;
+          }
+          
+           /* Μορφοποίηση έτσι ώστε μετά απο κάθε εφαρμογή της μορφοποίησης .row να υπάρχει κενό περιεχόμενο*/
+          .row::after {
+            content: "";
+            display: table;
+            clear: both;
+          }
+          /* Μορφοποίηση των στοιχείων input ώστε να καταλαμβάνουν το 100% του γονέα που τα φιλοξενεί*/
+          .inelements {
+            width: 100%;
+            overflow: hidden; /* σε περίπτωση που το κείμενο δεν χωράει μέσα στα στοιχεία κρύψτο*/
+          }   
+          p {
+            text-align: center;
+          }      
+        </style>
+    </head>
+<body>
+
+<!-- μορφοποίηση div σε μορφή πίνακα για να φιλοξενήσει τα πεδία εισαγωγής τιμών
+     και άλλων στοιχείων-->
+<div class="container">
+  <!-- η πρώτη γραμμή θα περιέχει τίτλους περιγραφής των στοιχείων που τοποθετούνται στη δεύτερη γραμμή-->
+   <div class="row">
+     <div class="column"><p>Μελέτη Event onchange σε πεδίο εισόδου. Γράψτε κάτι μέσα στο πεδίο και πατήστε Enter.</p></div>
+     <div class="column"> Μελέτη Event mouseover και mouseout πάνω σε κουμπί. Σύρετε τον κέρσορα του ποντικού πάνω στο κουμπί, και απομακρύνετέ το ξανά. Πατήστε επίσης το κουμπί.</div>
+     <div class="column"><p>Μελέτη Event onkeydown σε πεδίο εισόδου. Ξεκινήστε να γράφετε στο πεδίο εισόδου.</p></div>
+    </div>
+   <!-- η δεύτερη γραμμή θα περιέχει τα στοιχεία διάδρασης -->
+   <div class="row">
+    <div class="column"> <input id="value1" value="" class="inelements" onchange="value1TextChanged()" onload="value1OnLoad()"></div>
+    <div class="column"> <button id="button1" class="inelements" onclick="button1OnClick()" onmouseenter="button1OnMouseEnter()" onmouseout="button1OnMouseOut()">Άγγιξέ με!</button></div>
+    <div class="column"> <input id="value2" value ="" class="inelements" onkeyup="value2OnKeyUp()" onload="value1OnLoad()"></div>
+  </div>
+   <!-- η τρίτη γραμμή θα περιέχει στοιχεία που θα εμφανίζουν αποτελέσματα-->
+   <div class="row">
+    <div class="column"><p id="value1Response"></p></div>
+    <div class="column"><p id="button1Response"></p></div>
+    <div class="column"><p id="value2Response"></p></div>
+   </div>
+</div>
+
+<!--Κώδικας Javascript-->
+<script>
+
+// Συνάρτηση σε μορφή διαδικασίας η οποία θα καλείται όταν αλλάζει η τιμή στο πεδίο value1
+function value1TextChanged() {  
+  // Στο στοιχείο με id = value1Response εμφάνισε την τιμή που υπάρχει στο πεδίο value1
+  document.getElementById("value1Response").innerHTML = document.getElementById("value1").value;
+}
+
+// Συνάρτηση σε μορφή διαδικασίας η οποία θα καλείται όταν αλλάζει η τιμή στο πεδίο value1
+function value1OnLoad() {  
+  // Στο στοιχείο με id = value1Response εμφάνισε κενό
+  document.getElementById("value1Response").innerHTML = "";
+  
+}
+
+// Συνάρτηση χειρισμού του event mouseover πάνω στο κουμπί button1
+function button1OnMouseEnter() {
+  // Στο στοιχείο με id = button1Response εμφάνισε μήνυμα 
+  document.getElementById("button1Response").innerHTML = "Με αγγίζεις!"
+}
+
+// Συνάρτηση χειρισμού του event mouseout πάνω στο κουμπί button1
+function button1OnMouseOut() {
+  // Στο στοιχείο με id = button1Response εμφάνισε μήνυμα 
+  document.getElementById("button1Response").innerHTML = "Δεν με αγγίζεις!"
+}
+
+// Συνάρτηση χειρισμού του event onclick πάνω στο κουμπί button1
+function button1OnClick() {
+  // Στο στοιχείο με id = button1Response εμφάνισε μήνυμα 
+  document.getElementById("button1Response").innerHTML = "Με Πάτησες!"
+}
+
+// Συνάρτηση χειρισμού του event onKeyUp πάνω στο στοιχείο εισόδου value2
+function value2OnKeyUp() {
+  // Στο στοιχείο με id = value2Response θέσε κάθε φορά την τιμή που διαβάζεις απο το στοιχείο value2
+  document.getElementById("value2Response").innerHTML = document.getElementById("value2").value;
+}
+
+// Συνάρτηση χειρισμού του event onLoad πάνω στο στοιχείο εισόδου value2
+function value2OnLoad() {
+  // Στο στοιχείο με id = value2Response θέσε κενό
+  document.getElementById("value2Response").innerHTML = "";
+}
+
+</script>
+
+</body>
+</html> 

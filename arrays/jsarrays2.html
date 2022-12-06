@@ -1,0 +1,67 @@
+<!-- 
+  [Author] Gotsinas Antonios
+
+  [Πίνακες και javascript]
+
+  [Description] 
+
+    Σε αυτό το παράδειγμα μελετάμε τους πίνακες με την javascript
+   
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript SSOC</title>
+    </head>
+<body>
+
+  <!-- Δημιουργώ μία δική μου οθόνη με κώδικα html και την μορφοποιώ με css
+         έτσι ώστε να εμφανίζω τα αποτελέσματα των παραδειγμάτων μου σε αυτήν.-->   
+<h2>Οθόνη αποτελεσμάτων JavaScript</h2>
+<div style = "border: 2px solid black; width: 500px; height: 500px; padding: 10px;">
+<p id = "grammi1"></p>
+<p id = "grammi2"></p>
+<p id = "grammi3"></p>
+<p id = "grammi4"></p>
+<p id = "grammi5"></p>
+</div>
+
+
+<script>
+  // δήλωσε ένα πίνακα με όνομα numarray και αποθήκευσε μερικές ακέραιες τιμές σε αυτόν
+const numarray =[5, -4, 2, 3]; 
+
+// Υπολόγισε το άθροισμα των στοιχείων του πίνακα
+let sum = numarray[0] + numarray[1] + numarray[2] + numarray[3];
+// εμφάνισε στην οθόνη το άθροισμα των τιμών του πίνακα
+document.getElementById("grammi1").innerHTML = "Το άθροισμα των στοιχείων του πίνακα ["+numarray+"] είναι: " + sum;
+// βγάλε το τελευταίο στοιχείο του πίνακα και εμφάνισε το αποτέλεσμα στην οθόνη
+document.getElementById("grammi2").innerHTML = "Βγάζουμε το τελευταίο στοιχείο του πίνακα που είναι ο αριθμός: " + numarray.pop();
+// υπολόγισε το άθροισμα ξανά με τα στοιχεία που έμειναν
+sum = numarray[0] + numarray[1] + numarray[2];
+// εμφάνισε στην οθόνη το νέο άθροισμα καθώς και τον πίνακα με τα στοιχεία που έμειναν
+document.getElementById("grammi3").innerHTML = "Το άθροισμα των στοιχείων του πίνακα ["+numarray+"] είναι: " + sum;
+// βάλε στον πίνακα τον αριθμό 8 στο τέλος του πίνακα και εμφάνισε το νέο μέγεθος του πίνακα στην οθόνη με αντίστοιχο μήνυμα 
+document.getElementById("grammi4").innerHTML = "Βάζουμε τον αριθμό 8 στο τέλος του πίνακα και τώρα ο πίνακας έχει πάλι " + numarray.push(8) + " στοιχεία. [" + numarray +"]" ;
+// κάνουμε ξανά το άθροισμα του πίνακα και εμφανίζουμε το νέο άθροισμα στην οθόνη
+document.getElementById("grammi5").innerHTML = "Το άθροισμα των στοιχείων του πίνακα ["+numarray+"] με τη χρήση της συνάρτησης που έφτιαξα είναι: " + sumArray(numarray);
+
+// συνάρτηση υπολογισμού του αθροίσματος των στοιχείων ενός πίνακα
+function sumArray(myarray) {
+  // θέσε στη μεταβλητή length το μήκος του πίνακα
+  let length = myarray.length;
+  // δήλωσε μία μεταβλητή που θα κρατά το άθροισμα
+  let sum = 0;
+  // για όλα τα στοιχεία του πίνακα 
+  for(let i=0; i< length; i++)
+  {
+    // πρόσθεσε το κάθε στοιχείο με το επόμενο βάζοντας το αποτέλεσμα στη μεταβλητή sum σε κάθε επανάληψη
+    sum = sum + myarray[i];
+  }
+  // επέστρεψε το αποτέλεσμα του αθροίσματος
+  return sum;
+}
+</script>
+
+</body>
+</html> 
